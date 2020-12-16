@@ -2,10 +2,6 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Json;
-using System.Threading.Tasks;
 using vorpcore_sv.Scripts;
 
 namespace vorpcore_sv.Utils
@@ -50,10 +46,9 @@ namespace vorpcore_sv.Utils
                 cb.Invoke(corefunctions);
             });
         }
-        public static Dictionary<string, dynamic> getUser(int source)
+        public Dictionary<string, dynamic> getUser(int source)
         {
-            PlayerList p = new PlayerList();
-            string steam = "steam:" + p[source].Identifiers["steam"];
+            string steam = "steam:" + Players[source].Identifiers["steam"];
             if (LoadUsers._users.ContainsKey(steam))
             {
                 return LoadUsers._users[steam].GetUser();
@@ -64,11 +59,10 @@ namespace vorpcore_sv.Utils
             }
         }
 
-        public static Dictionary<string, Dictionary<string, dynamic>> getConnectedUsers()
+        public Dictionary<string, Dictionary<string, dynamic>> getConnectedUsers()
         {
-            PlayerList p = new PlayerList();
             Dictionary<string, Dictionary<string, dynamic>> UsersDictionary = new Dictionary<string, Dictionary<string, dynamic>>();
-            foreach(Player player in p)
+            foreach(Player player in Players)
             {
                 string steam = "steam:"+player.Identifiers["steam"];
                 if (LoadUsers._users.ContainsKey(steam) && !UsersDictionary.ContainsKey(steam))
@@ -79,28 +73,10 @@ namespace vorpcore_sv.Utils
             return UsersDictionary;
         }
 
-        public static Player getSource(int handle)
-        {
-            Player p = null;
-
-            try
-            {
-                PlayerList pl = new PlayerList();
-                p = pl[handle];
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Server Handle Not Found");
-                p = null;
-            }
-
-            return p;
-        }
-
         private void removeMoney(int handle, int typeCash, double quantity)
         {
 
-            Player player = getSource(handle);
+            Player player = Players[handle];
             string sid = "steam:" + player.Identifiers["steam"];
 
             if (LoadUsers._users.ContainsKey(sid))
@@ -131,9 +107,7 @@ namespace vorpcore_sv.Utils
 
         private void addMoney(int handle, int typeCash, double quantity)
         {
-          
-            Player player = getSource(handle);
-
+            var player = Players[handle];
             string sid = ("steam:" + player.Identifiers["steam"]);
 
             if (LoadUsers._users.ContainsKey(sid))
@@ -161,8 +135,8 @@ namespace vorpcore_sv.Utils
 
         private void addXp(int handle, int quantity)
         {
-          
-            Player player = getSource(handle);
+
+            var player = Players[handle];
 
             string sid = ("steam:" + player.Identifiers["steam"]);
 
@@ -187,9 +161,7 @@ namespace vorpcore_sv.Utils
 
         private void removeXp(int handle, int quantity)
         {
-            
-            Player player = getSource(handle);
-
+            var player = Players[handle];
             string sid = ("steam:" + player.Identifiers["steam"]);
 
             if (LoadUsers._users.ContainsKey(sid))
@@ -213,9 +185,7 @@ namespace vorpcore_sv.Utils
 
         private void setJob(int handle, string job)
         {
-
-            Player player = getSource(handle);
-
+            var player = Players[handle];
             string sid = ("steam:" + player.Identifiers["steam"]);
 
             if (LoadUsers._users.ContainsKey(sid))
@@ -232,7 +202,7 @@ namespace vorpcore_sv.Utils
 
         private void setGroup(int handle, string group)
         {
-            Player player = getSource(handle);
+            var player = Players[handle];
 
             string sid = ("steam:" + player.Identifiers["steam"]);
 
@@ -250,7 +220,7 @@ namespace vorpcore_sv.Utils
 
         private void getCharacter(int handle, dynamic cb)
         {
-            Player player = getSource(handle);
+            var player = Players[handle];
 
             string sid = ("steam:" + player.Identifiers["steam"]);
 

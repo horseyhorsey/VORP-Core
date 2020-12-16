@@ -167,9 +167,7 @@ namespace vorpcore_sv.Scripts
         {
             try
             {
-                PlayerList PL = new PlayerList();
-                List<Player> playerList = PL.ToList();
-                foreach (Player p in playerList)
+                foreach (Player p in Players)
                 {
                     if (p.Identifiers["steam"] != null)
                     {

@@ -32,15 +32,13 @@ namespace vorpcore_sv.Class
 
         private bool isdead;
 
-        private Player userPlayer;
         private int source;
 
         public int Source { set => source = value; }
 
         public Player PlayerVar {
             get {
-                PlayerList pl = new PlayerList();
-                return pl[source];
+                return Players[source];
             } 
         }
 
