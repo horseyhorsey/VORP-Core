@@ -27,13 +27,14 @@ namespace vorpcore_sv.Utils
 
         private void LoadConfigAndLang()
         {
-            if (File.Exists($"{resourcePath}/Config.json"))
+            var langDir = $"{resourcePath}/lang/";
+            if (File.Exists($"{langDir}Config.json"))
             {
                 ConfigString = File.ReadAllText($"{resourcePath}/Config.json", Encoding.UTF8);
                 Config = JObject.Parse(ConfigString);
-                if (File.Exists($"{resourcePath}/{Config["defaultlang"]}.json"))
+                if (File.Exists($"{langDir}{Config["defaultlang"]}.json"))
                 {
-                    string langstring = File.ReadAllText($"{resourcePath}/{Config["defaultlang"]}.json", Encoding.UTF8);
+                    string langstring = File.ReadAllText($"{langDir}{Config["defaultlang"]}.json", Encoding.UTF8);
                     Langs = JsonConvert.DeserializeObject<Dictionary<string, string>>(langstring);
                     Debug.WriteLine($"{API.GetCurrentResourceName()}: Language {Config["defaultlang"]}.json loaded!");
                 }
@@ -46,13 +47,17 @@ namespace vorpcore_sv.Utils
             {
                 Debug.WriteLine($"{API.GetCurrentResourceName()}: Config.json Not Found");
             }
+
             isConfigLoaded = true;
-            if (Config["Whitelist"].ToObject<bool>() != null)
+            if (Config.ContainsKey("Whitelist"))
             {
-                LoadUsers._usingWhitelist = Config["Whitelist"].ToObject<bool>();
-                if (LoadUsers._usingWhitelist)
+                if (Config["Whitelist"].ToObject<bool>())
                 {
-                    LoadWhitelist();
+                    LoadUsers._usingWhitelist = Config["Whitelist"].ToObject<bool>();
+                    if (LoadUsers._usingWhitelist)
+                    {
+                        LoadWhitelist();
+                    }
                 }
             }
         }

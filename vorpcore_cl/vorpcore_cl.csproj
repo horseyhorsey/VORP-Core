@@ -72,5 +72,23 @@
       <Version>3.2.2</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ui\css\style.css" />
+    <Content Include="Ui\hud.html" />
+    <Content Include="Ui\icons\gold_2.png" />
+    <Content Include="Ui\icons\token.png" />
+    <Content Include="Ui\js\progressbar.js" />
+    <Content Include="Ui\js\progressbar.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Ui\fonts\HapnaSlabSerif-DemiBold.ttf" />
+    <None Include="Ui\fonts\RDRCatalogueBold-Bold.ttf" />
+    <None Include="Ui\fonts\RDRGothica-Regular.ttf" />
+    <None Include="Ui\fonts\rdrlino-regular-webfont.woff" />
+    <None Include="Ui\fonts\rdrlino-regular-webfont.woff2" />
+    <None Include="Ui\fonts\RDRLino-Regular.ttf" />
+    <None Include="Ui\fonts\Redemption.ttf" />
+    <None Include="Ui\js\progressbar.min.js.map" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

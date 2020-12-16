@@ -7,6 +7,34 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vorpcore_cl", "vorpcore_cl\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vorpcore_sv", "vorpcore_sv\vorpcore_sv.csproj", "{A754D885-DA97-4ED1-835A-AEB3160DBD46}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ui", "build\vorp_core\ui\", "{E56E732C-051A-45D1-9D92-DA62FADE17AE}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63896"
+		Debug.AspNetCompiler.PhysicalPath = "build\vorp_core\ui\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63896\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63896"
+		Release.AspNetCompiler.PhysicalPath = "build\vorp_core\ui\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63896\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63896"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{33ABDEC4-02DC-4FCB-93D3-62397F4512B6}"
+	ProjectSection(SolutionItems) = preProject
+		build\vorp_core\fxmanifest.lua = build\vorp_core\fxmanifest.lua
+		build\vorp_core\Notifications.js = build\vorp_core\Notifications.js
+		build\vorp_core\vorpcore_luapi.lua = build\vorp_core\vorpcore_luapi.lua
+		build\vorp_core\vorpv2.sql = build\vorp_core\vorpv2.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +49,10 @@ Global
 		{A754D885-DA97-4ED1-835A-AEB3160DBD46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A754D885-DA97-4ED1-835A-AEB3160DBD46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A754D885-DA97-4ED1-835A-AEB3160DBD46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E56E732C-051A-45D1-9D92-DA62FADE17AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E56E732C-051A-45D1-9D92-DA62FADE17AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E56E732C-051A-45D1-9D92-DA62FADE17AE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E56E732C-051A-45D1-9D92-DA62FADE17AE}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
