@@ -37,7 +37,7 @@ namespace vorpcore_cl.Scripts
             int count = 0;
             uint playerHash = (uint)API.GetHashKey("PLAYER");
 
-            if (API.IsControlPressed(0, (uint)0xCEFD9220))
+            if (API.IsControlPressed(0, 0xCEFD9220)) //E, Control.Pickup
             {
                 Function.Call((Hash)0xBF25EB89375A37AD, 1, playerHash, playerHash);
                 active = true;
